@@ -1102,17 +1102,17 @@ html[data-theme="light"] .skill-group h4 { color: rgba(255,255,255,0.5); }
   background: linear-gradient(135deg, #1e3a8a, #3b6ef8);
 }
 .book-body { padding: 16px 18px; display:flex; flex-direction:column; gap:6px; min-height: 220px; }
-.book-body h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-.book-author { font-size: 0.78rem; color: var(--blue); font-weight: 600; margin-bottom: 8px; }
+.book-body h4 { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.book-author { font-size: 0.82rem; color: var(--blue); font-weight: 600; margin-bottom: 8px; }
 .book-highlights {
   margin: 0;
   padding-left: 18px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  font-size: 0.77rem;
-  color: var(--text-muted);
-  line-height: 1.45;
+  gap: 7px;
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.55;
 }
 .book-highlights li::marker { color: var(--blue); }
 .book-note { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; font-style: italic; display:-webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow:hidden; }
@@ -2520,8 +2520,8 @@ html[data-theme="light"] .now-section { background: #f7f9fc; }
 ───────────────────────────────────────── */
 @media (max-width: 580px) {
   .book-body { padding: 12px 14px; min-height: unset; }
-  .book-body h4 { font-size: 0.88rem; }
-  .book-highlights { font-size: 0.74rem; gap: 4px; }
+  .book-body h4 { font-size: 0.92rem; }
+  .book-highlights { font-size: 0.82rem; gap: 5px; }
   .book-cover-wrap { aspect-ratio: 2 / 2.5; }
   .books-philosophy { padding: 18px; }
 }
@@ -4826,6 +4826,7 @@ html[data-theme="light"] .timeline-item.tl-active .tl-card {
 }
 .podcast-item {
   display: flex; align-items: center; gap: 10px;
+  min-width: 0;
   background: rgba(255,255,255,0.04); border: 1px solid var(--border);
   border-radius: 10px; padding: 10px 12px;
   text-decoration: none; color: inherit;
@@ -4838,6 +4839,10 @@ a.podcast-item:hover {
   width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem; background: var(--pod-color, rgba(59,110,248,0.2));
+}
+.podcast-item > div:last-child { min-width: 0; }
+.podcast-name, .podcast-host {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .podcast-name { font-size: 0.78rem; font-weight: 700; line-height: 1.2; }
 .podcast-host { font-size: 0.7rem; color: var(--text-muted); margin-top: 1px; }
