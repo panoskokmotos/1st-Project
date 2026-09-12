@@ -4,9 +4,10 @@ const OFFLINE_URL = '/offline.html';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/style.css',
-  '/script.js',
-  '/chat.js',
+  '/style.min.css',
+  '/shared.js',
+  '/script.min.js',
+  '/chat.min.js',
   '/photo.webp',
   '/offline.html',
   '/manifest.json',

@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<!-- include:gtag -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-790ERKMVS5"></script>
+  <!-- Analytics (Google Analytics & PostHog) — both loaded only after cookie consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-790ERKMVS5');
+    gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',wait_for_update:500});
+    function _loadGA(){
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-790ERKMVS5';
+      document.head.appendChild(s);
+      gtag('js',new Date());
+      gtag('config','G-790ERKMVS5');
+    }
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||(window.posthog=[]));
+    function _loadPostHog(){
+      posthog.init("phc_BJBQFh9hadJS3u6CzBUa8KY3kxveMeuXVfGGZVm4N34n", {
+        api_host: "https://t.panoskokmotos.com",
+        ui_host: "https://us.posthog.com",
+        person_profiles: "identified_only"
+      });
+    }
+    (function(){
+      var consent=localStorage.getItem('cookie_consent');
+      if(consent==='accepted'){gtag('consent','update',{analytics_storage:'granted'});_loadGA();_loadPostHog();}
+    })();
   </script>
 <!-- /include:gtag -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A live snapshot of what Panos Kokmotos is focused on right now — scaling Givelink globally, reading, training for triathlons, and thinking about serendipity. Updated March 2026." />
+  <meta name="description" content="A live snapshot of what Panos Kokmotos is focused on right now — scaling Givelink globally, reading, training for triathlons, and thinking about serendipity." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Panos Kokmotos" />
   <meta name="keywords" content="Panos Kokmotos, now page, what I'm doing now, Givelink, San Francisco, Athens" />
-  <title>What I'm Doing Now | Panos Kokmotos — Givelink Co-Founder & WEF Global Shaper</title>
+  <title>What I'm Doing Now | Panos Kokmotos</title>
 
   <!-- Open Graph -->
   <meta property="og:title" content="What I'm Doing Now | Panos Kokmotos" />
@@ -32,34 +49,17 @@
   <meta name="twitter:description" content="A snapshot of what Panos Kokmotos is actually focused on right now. Updated March 2026." />
   <meta name="twitter:image" content="https://panoskokmotos.com/og-image.png" />
   <meta name="twitter:creator" content="@panoskokmotoss" />
-
-  <!-- Plausible Analytics -->
-<!-- include:plausible -->
-  <script defer data-domain="panoskokmotos.com" src="https://plausible.io/js/script.js"></script>
-<!-- /include:plausible -->
-
   <!-- DNS prefetch for external domains -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.min.css?v=20260912" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="180x180" href="assets/favicon-180.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png" />
   <link rel="canonical" href="https://panoskokmotos.com/now.html" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#3b6ef8" />
-<!-- include:posthog -->
-  <!-- PostHog Analytics -->
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||(window.posthog=[]));
-    posthog.init("phc_WDGdxSf2xcEbL1c6vbAkrr8LJcJqrodykJKGKhom82L", {
-      api_host: "https://t.panoskokmotos.com",
-      ui_host: "https://us.posthog.com",
-      person_profiles: "identified_only"
-    });
-  </script>
-<!-- /include:posthog -->
   <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://panoskokmotos.com/"},{"@type":"ListItem","position":2,"name":"Now","item":"https://panoskokmotos.com/now.html"}]}
 </script>
@@ -94,6 +94,50 @@
   </script>
 </head>
 <body>
+  <!-- ── GDPR Cookie Consent Banner ── -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie consent" style="display:none">
+    <div class="cookie-banner-inner">
+      <div class="cookie-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-.34-.02-.67-.05-1a3 3 0 01-3.45-3.45A3 3 0 0115 4.05 9.97 9.97 0 0012 2z"/>
+          <circle cx="8.5" cy="10" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="13" cy="15" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="15" cy="9" r="0.7" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="cookie-content">
+        <p class="cookie-title">We use cookies</p>
+        <p class="cookie-text">
+          This site uses analytics cookies (Google Analytics &amp; PostHog) to understand how visitors use it. No personal data is sold or shared with advertisers. See our
+          <a href="/privacy.html" class="cookie-link">Privacy Policy</a> and
+          <a href="/terms.html" class="cookie-link">Terms &amp; Conditions</a>.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Decline</button>
+        <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept All</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var b=document.getElementById('cookieBanner');
+      if(!localStorage.getItem('cookie_consent')){
+        b.style.display='';
+        document.getElementById('cookieAccept').onclick=function(){
+          localStorage.setItem('cookie_consent','accepted');
+          b.style.display='none';
+          gtag('consent','update',{analytics_storage:'granted'});
+          _loadGA();
+          if (typeof _loadPostHog === 'function') _loadPostHog();
+        };
+        document.getElementById('cookieDecline').onclick=function(){
+          localStorage.setItem('cookie_consent','declined');
+          b.style.display='none';
+        };
+      }
+    })();
+  </script>
 
   <!-- Page Loader -->
   <div id="page-loader" aria-hidden="true">
@@ -227,7 +271,13 @@
           <div class="now-page-icon">⚡</div>
           <div class="now-page-content">
             <h3>Vibe Coding for Good</h3>
-            <p>Building small tools for social impact and everyday usefulness using AI. Rapid prototyping — ship fast, learn faster. Exploring where LLMs unlock genuine leverage for nonprofits.</p>
+            <ul class="now-bullets">
+              <li>Building small tools for social impact &amp; everyday usefulness</li>
+              <li>Rapid prototyping with AI — ship fast, learn faster</li>
+              <li>Running Claude Code as an internal ops layer: a growing library of custom skills (nonprofit outreach, PostHog reporting, PR review, weekly digests) that turn repeatable Givelink workflows into one-command automations</li>
+              <li>Built a Make.com stack connecting Apollo, PostHog, and AI content generation — automating the pipeline from lead to onboarding</li>
+              <li>Exploring where LLMs unlock genuine leverage for nonprofits, and for founders running lean</li>
+            </ul>
           </div>
         </div>
 
@@ -354,7 +404,7 @@
     </div>
   </div>
   <script src="/shared.js"></script>
-  <script src="script.js"></script>
-  <script src="chat.js"></script>
+  <script src="script.min.js?v=20260912"></script>
+  <script src="chat.min.js?v=20260912"></script>
 </body>
 </html>

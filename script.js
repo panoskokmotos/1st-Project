@@ -1,3 +1,6 @@
+// ── Respect OS-level "reduce motion" preference ──
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ── Page Loader ──
 (function () {
   const loader = document.getElementById('page-loader');
@@ -160,6 +163,7 @@ window.addEventListener('scroll', () => {
 
 // ── Confetti on first visit (session-gated) ──
 (function () {
+  if (prefersReducedMotion) return;
   if (sessionStorage.getItem('confetti_done')) return;
   sessionStorage.setItem('confetti_done', '1');
 
@@ -223,7 +227,7 @@ document.querySelectorAll('.book-cover-img').forEach(img => {
 
 // ── Hero parallax orbs ──
 const heroOrbs = document.querySelectorAll('.hero-orb');
-if (heroOrbs.length) {
+if (heroOrbs.length && !prefersReducedMotion) {
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     heroOrbs[0] && (heroOrbs[0].style.transform = `translateY(${y * 0.25}px)`);
@@ -503,7 +507,7 @@ document.querySelectorAll('.skeleton-wrap img.book-cover-img').forEach(img => {
 
 // ── 3D card tilt on project cards ──
 (function() {
-  if (window.matchMedia('(pointer: coarse)').matches) return; // skip on touch
+  if (window.matchMedia('(pointer: coarse)').matches || prefersReducedMotion) return; // skip on touch / reduced motion
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
@@ -524,6 +528,7 @@ document.querySelectorAll('.skeleton-wrap img.book-cover-img').forEach(img => {
   const el = document.getElementById('heroTagline');
   if (!el) return;
   const words = ['Advocate.', 'Changemaker.', 'Builder.'];
+  if (prefersReducedMotion) { el.textContent = words.join(' '); return; }
   const cursor = document.createElement('span');
   cursor.className = 'hero-tagline-cursor';
   cursor.setAttribute('aria-hidden', 'true');
@@ -628,7 +633,7 @@ document.querySelectorAll('.skeleton-wrap img.book-cover-img').forEach(img => {
 // ── Hero particle canvas ──
 (function() {
   const canvas = document.getElementById('hero-particles');
-  if (!canvas) return;
+  if (!canvas || prefersReducedMotion) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
   const COUNT = window.innerWidth < 600 ? 40 : 80;
@@ -655,6 +660,7 @@ document.querySelectorAll('.skeleton-wrap img.book-cover-img').forEach(img => {
     particles = Array.from({ length: COUNT }, mkParticle);
   }
 
+  let rafId = null;
   function draw() {
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => {
@@ -666,8 +672,18 @@ document.querySelectorAll('.skeleton-wrap img.book-cover-img').forEach(img => {
       ctx.fillStyle = `rgba(139,168,255,${p.alpha})`;
       ctx.fill();
     });
-    requestAnimationFrame(draw);
+    rafId = requestAnimationFrame(draw);
   }
+
+  // Pause the animation loop when the tab isn't visible (saves battery/CPU)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+    } else if (!rafId) {
+      draw();
+    }
+  });
 
   window.addEventListener('resize', resize);
   init();
@@ -728,7 +744,7 @@ document.querySelectorAll('.award-flip').forEach(card => {
 
 // ── Cursor spotlight (desktop only) ──
 (function() {
-  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(hover: none)').matches || prefersReducedMotion) return;
   const el = document.createElement('div');
   el.className = 'cursor-spotlight';
   document.body.appendChild(el);
@@ -841,22 +857,12 @@ function toggleAwards(btn) {
   btn.classList.toggle('open');
   const isOpen = extra.classList.contains('open');
   const textNode = [...btn.childNodes].find(n => n.nodeType === 3);
-  if (textNode) textNode.textContent = isOpen ? 'Show less ' : 'Show all 18 awards ';
+  if (textNode) textNode.textContent = isOpen ? 'Show less ' : 'Show all 19 awards ';
   if (isOpen) {
     extra.querySelectorAll('[data-animate]').forEach(el => {
       setTimeout(() => el.classList.add('visible'), 50);
     });
   }
-}
-
-function toggleAwardsMobile(btn) {
-  const grid = document.querySelector('.awards-grid');
-  if (!grid) return;
-  grid.classList.toggle('mobile-expanded');
-  btn.classList.toggle('open');
-  const isOpen = grid.classList.contains('mobile-expanded');
-  const textNode = [...btn.childNodes].find(n => n.nodeType === 3);
-  if (textNode) textNode.textContent = isOpen ? 'Show less ' : 'Show 3 more ';
 }
 
 // ── Draggable logo marquee ──

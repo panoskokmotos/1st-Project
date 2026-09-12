@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google Analytics — loaded only after consent -->
+  <!-- Analytics (Google Analytics & PostHog) — both loaded only after cookie consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -14,14 +14,22 @@
       gtag('js',new Date());
       gtag('config','G-790ERKMVS5');
     }
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||(window.posthog=[]));
+    function _loadPostHog(){
+      posthog.init("phc_BJBQFh9hadJS3u6CzBUa8KY3kxveMeuXVfGGZVm4N34n", {
+        api_host: "https://t.panoskokmotos.com",
+        ui_host: "https://us.posthog.com",
+        person_profiles: "identified_only"
+      });
+    }
     (function(){
       var consent=localStorage.getItem('cookie_consent');
-      if(consent==='accepted'){gtag('consent','update',{analytics_storage:'granted'});_loadGA();}
+      if(consent==='accepted'){gtag('consent','update',{analytics_storage:'granted'});_loadGA();_loadPostHog();}
     })();
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Panos Kokmotos — Forbes 30 Under 30 Greece, WEF Global Shaper SF, Co-Founder & COO of Givelink. 18 awards, $220K+ goods delivered to nonprofits, 100K+ lives impacted. Building from San Francisco." />
+  <meta name="description" content="Panos Kokmotos — Forbes 30 Under 30 Greece, WEF Global Shaper SF, Co-Founder & COO of Givelink. 100K+ lives impacted, 18 awards. Building from San Francisco." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="google-site-verification" content="vv1NfC8phrP81XA6MiYM8uiRNtICZoyS-7dUrhY51sI" />
   <link rel="alternate" hreflang="en" href="https://panoskokmotos.com/" />
@@ -52,10 +60,6 @@
   <meta name="geo.placename" content="San Francisco, California" />
   <meta name="geo.position" content="37.7749;-122.4194" />
   <meta name="ICBM" content="37.7749, -122.4194" />
-
-  <!-- Plausible Analytics — sign up at plausible.io and add panoskokmotos.com to activate -->
-  <script defer data-domain="panoskokmotos.com" src="https://plausible.io/js/script.js"></script>
-
   <!-- DNS prefetch for external domains -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://books.google.com" />
@@ -66,7 +70,7 @@
   <link rel="preconnect" href="https://formspree.io" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" /></noscript>
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.min.css?v=20260912" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png" />
@@ -507,22 +511,7 @@
     }
   ]
 }
-</script>
-
-  <!-- PostHog Analytics -->
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||(window.posthog=[]));
-    // Defer PostHog load until the browser is idle so it doesn't compete with initial paint.
-    // The stub above queues any early capture() calls; they flush once init runs.
-    (window.requestIdleCallback || function (cb) { setTimeout(cb, 2000); })(function () {
-      posthog.init("phc_WDGdxSf2xcEbL1c6vbAkrr8LJcJqrodykJKGKhom82L", {
-        api_host: "https://t.panoskokmotos.com",
-        ui_host: "https://us.posthog.com",
-        person_profiles: "identified_only"
-      });
-    });
-  </script>
-</head>
+</script></head>
 <body>
 
   <!-- ── GDPR Cookie Consent Banner ── -->
@@ -560,6 +549,7 @@
           b.style.display='none';
           gtag('consent','update',{analytics_storage:'granted'});
           _loadGA();
+          if (typeof _loadPostHog === 'function') _loadPostHog();
         };
         document.getElementById('cookieDecline').onclick=function(){
           localStorage.setItem('cookie_consent','declined');
@@ -978,10 +968,10 @@
             <div class="now-icon">🏋️</div>
           </div>
           <div class="now-body">
-            <h3 class="now-card-title">HYROX &amp; Triathlon</h3>
+            <h3 class="now-card-title">Triathlon &amp; CrossFit</h3>
             <ul class="now-bullets">
               <li>Competing at competitive level</li>
-              <li>HYROX & triathlon training daily</li>
+              <li>Triathlon &amp; CrossFit training daily</li>
               <li>Same discipline as building a company</li>
             </ul>
           </div>
@@ -1002,14 +992,14 @@
         </div>
         <div class="now-card" data-animate>
           <div class="now-card-top">
-            <span class="now-tag">Writing</span>
+            <span class="now-tag">Published</span>
             <div class="now-icon">📖</div>
           </div>
           <div class="now-body">
-            <h3 class="now-card-title">Writing a Book</h3>
+            <h3 class="now-card-title">The Useful Life</h3>
             <ul class="now-bullets">
-              <li>Theme: being genuinely useful in an AI world</li>
-              <li>Why usefulness matters more as AI advances</li>
+              <li>"A Field Guide to Leverage, Wisdom &amp; Purpose in the Age of AI"</li>
+              <li>Now available — Kindle &amp; paperback</li>
             </ul>
           </div>
         </div>
@@ -1022,8 +1012,8 @@
             <h3 class="now-card-title">Vibe Coding for Good</h3>
             <ul class="now-bullets">
               <li>Building small tools for social impact &amp; everyday usefulness</li>
-              <li>Rapid prototyping with AI — ship fast, learn faster</li>
-              <li>Exploring where LLMs unlock genuine leverage for nonprofits</li>
+              <li>Claude Code as an internal ops layer — custom skills for outreach, reporting &amp; digests</li>
+              <li>Make.com stack automating Apollo → PostHog → onboarding</li>
             </ul>
           </div>
         </div>
@@ -1496,6 +1486,34 @@
             </div>
           </div>
         </div>
+        <div class="project-card" data-animate>
+          <div class="project-img" style="display:flex;align-items:center;justify-content:center;font-size:2.4rem;">🎯</div>
+          <div class="project-body">
+            <div class="project-top"><span class="project-label">Side Project</span><h3>Arete</h3><p class="project-type">Personal Operating System</p></div>
+            <p>Task capture, day planning by energy level, and goal tracking across life areas — built to keep daily execution aligned with bigger objectives.</p>
+            <div class="project-actions" style="margin-top:10px">
+              <a href="https://panos-task-management.vercel.app/" target="_blank" rel="noopener" class="btn btn-visit-givelink">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Website
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-animate>
+          <div class="project-img" style="display:flex;align-items:center;justify-content:center;font-size:2.4rem;">💰</div>
+          <div class="project-body">
+            <div class="project-top"><span class="project-label">Side Project</span><h3>Ploutos</h3><p class="project-type">Personal Finance OS</p></div>
+            <p>Net worth tracking, Monte Carlo retirement simulations, and AI coaching on tax and spending — including Greek tax features (ENFIA, etc).</p>
+            <div class="project-actions" style="margin-top:10px">
+              <a href="https://financialgenius.panoskokmotos.com/" target="_blank" rel="noopener" class="btn btn-visit-givelink">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Website
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1673,11 +1691,23 @@
             <div class="award-back"><p>Bronze medal by Marianna Vardinogianni among 500+ participants — a broad-knowledge competition by Doukas School (Oct 2019).</p></div>
           </div>
         </div>
+        <div class="award-flip" data-animate>
+          <div class="award-flip-inner">
+            <div class="award-front"><span class="award-emoji">🎗️</span><p>Social Impact Award — Mediterranean College</p></div>
+            <div class="award-back"><p>Awarded to Givelink for its philanthropy platform's impact in Greece — 100,000+ lives improved and clear gains in donor transparency and repeat giving.</p><a href="https://www.linkedin.com/posts/panoskokmotos_with-deep-gratitude-we-received-the-social-activity-7434221903533412352-_K6w" target="_blank" rel="noopener" class="award-back-link">Read more →</a></div>
+          </div>
+        </div>
+        <div class="award-flip" data-animate>
+          <div class="award-flip-inner">
+            <div class="award-front"><span class="award-emoji">🌍</span><p>Effective Altruism Fellowship</p></div>
+            <div class="award-back"><p>Selected for the SF cohort (Jun 2026) — an 8-week program on cause prioritization, expected-value reasoning, and where marginal effort does the most good. Sharpened how we think about Givelink's own impact: which need to serve first, and how to measure good delivered per dollar rather than dollars raised.</p></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="awards-show-more-wrap">
         <button class="awards-show-more-btn" id="awardsShowMore" onclick="toggleAwards(this)">
-          Show all 18 awards <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 6l4 4 4-4"/></svg>
+          Show all 19 awards <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 6l4 4 4-4"/></svg>
         </button>
       </div>
 
@@ -1769,6 +1799,24 @@
           </div>
           <div class="press-outlet">Capital.gr</div>
           <p class="press-headline">Joint Investment in Givelink by Kourkoulou-Latsi Family Office &amp; Vassiliadis Group</p>
+          <span class="press-arrow">→</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=p0-PQpb5Zd0" target="_blank" rel="noopener" class="press-card" data-animate>
+          <div class="press-thumb-placeholder press-thumb-podcast">
+            <span class="ptp-icon">🎙️</span>
+            <span class="ptp-label">Nonprofit Leadership</span>
+          </div>
+          <div class="press-outlet">Nonprofit Leadership Podcast</div>
+          <p class="press-headline">How Transparency Can Improve Donor Retention — with Antonis Politis, on a 60% lift in annual giving</p>
+          <span class="press-arrow">→</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=XUO7hnnFmHY" target="_blank" rel="noopener" class="press-card" data-animate>
+          <div class="press-thumb-placeholder press-thumb-podcast">
+            <span class="ptp-icon">🎙️</span>
+            <span class="ptp-label">Double the Donation</span>
+          </div>
+          <div class="press-outlet">Double the Donation</div>
+          <p class="press-headline">Beyond Cash Gifts: How to Grow In-Kind and Financial Support</p>
           <span class="press-arrow">→</span>
         </a>
       </div>
@@ -1872,32 +1920,41 @@
       <h2 class="section-heading">Blogs &amp; Insights</h2>
       <p class="section-sub">Thoughts on entrepreneurship, social impact, AI, and building companies that matter.</p>
       <div class="blog-grid">
-        <a href="https://panoskokmotos.substack.com" target="_blank" rel="noopener" class="blog-card" data-animate>
+        <a href="https://panoskokmotos.substack.com/p/ethics-needs-its-telescope" target="_blank" rel="noopener" class="blog-card" data-animate>
           <div class="blog-card-top">
-            <span class="blog-tag">🚀 Entrepreneurship</span>
-            <span class="blog-tag">✍️ Coming Soon</span>
+            <span class="blog-tag">💭 Philosophy</span>
+            <span class="blog-read">Sep 2026</span>
           </div>
-          <h3>How We Built Givelink from a Napkin Idea to Forbes 30 Under 30</h3>
-          <p>I'm working on this piece — subscribe on Substack to get it when it's live.</p>
-          <span class="blog-cta">Subscribe to get it →</span>
+          <h3>Ethics Needs Its Telescope</h3>
+          <p>How does a society get better at ethics on purpose, instead of by accident? Ethics as experiment, not opinion — we just haven't built the instruments yet.</p>
+          <span class="blog-cta">Read on Substack →</span>
         </a>
-        <a href="https://panoskokmotos.substack.com" target="_blank" rel="noopener" class="blog-card" data-animate>
+        <a href="https://panoskokmotos.substack.com/p/utopia-is-the-wrong-dream" target="_blank" rel="noopener" class="blog-card" data-animate>
           <div class="blog-card-top">
-            <span class="blog-tag">🤖 AI &amp; Future</span>
-            <span class="blog-tag">✍️ Coming Soon</span>
+            <span class="blog-tag">💭 Philosophy</span>
+            <span class="blog-read">Jul 2026</span>
           </div>
-          <h3>Why Every Founder Needs to Understand AI Right Now</h3>
-          <p>I'm working on this piece — subscribe on Substack to get it when it's live.</p>
-          <span class="blog-cta">Subscribe to get it →</span>
+          <h3>Utopia Is the Wrong Dream</h3>
+          <p>Why the best world isn't the one that runs out of problems, but the one that never runs out of the right ones. Meaning comes from having the right problems, not solving them away.</p>
+          <span class="blog-cta">Read on Substack →</span>
         </a>
-        <a href="https://panoskokmotos.substack.com" target="_blank" rel="noopener" class="blog-card" data-animate>
+        <a href="https://panoskokmotos.substack.com/p/i-pledged-to-give-away-part-of-my" target="_blank" rel="noopener" class="blog-card" data-animate>
           <div class="blog-card-top">
-            <span class="blog-tag">📚 Learning</span>
-            <span class="blog-tag">✍️ Coming Soon</span>
+            <span class="blog-tag">🌱 Effective Giving</span>
+            <span class="blog-read">May 2026</span>
           </div>
-          <h3>The Google Map Theory of Learning: Read 40 Books a Year</h3>
-          <p>I'm working on this piece — subscribe on Substack to get it when it's live.</p>
-          <span class="blog-cta">Subscribe to get it →</span>
+          <h3>I Pledged to Give Away Part of My Income This Week. Here's Why.</h3>
+          <p>On a book that broke something open, the EA community, a Deutsch game built for fun, and the 3-tool stack that booked a Stanford speaker session and 3 podcasts almost automatically.</p>
+          <span class="blog-cta">Read on Substack →</span>
+        </a>
+        <a href="https://panoskokmotos.substack.com/p/the-two-worlds-of-san-francisco" target="_blank" rel="noopener" class="blog-card" data-animate>
+          <div class="blog-card-top">
+            <span class="blog-tag">🌉 San Francisco</span>
+            <span class="blog-read">Apr 2026</span>
+          </div>
+          <h3>The Two Worlds of San Francisco</h3>
+          <p>How living between investors and charities led me to rethink philanthropy — two worlds, living side by side, every single day.</p>
+          <span class="blog-cta">Read on Substack →</span>
         </a>
         <a href="https://www.investinginkindnessproject.com/blog/panos-kokmotos-bridging-ancient-wisdom-and-modern-kindness" target="_blank" rel="noopener" class="blog-card" data-animate>
           <div class="blog-card-top">
@@ -2294,9 +2351,9 @@
   </div>
 
   <script src="/shared.js"></script>
-  <script src="script.js"></script>
-  <script src="chat.js"></script>
-  <script src="search.js"></script>
+  <script src="script.min.js?v=20260912"></script>
+  <script src="chat.min.js?v=20260912"></script>
+  <script src="search.min.js?v=20260912"></script>
   <!-- FAQ accordion + follow-up chat launcher -->
   <script>
     document.querySelectorAll('.faq-q').forEach(btn => {

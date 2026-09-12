@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Analytics (Google Analytics & PostHog) — both loaded only after cookie consent -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',wait_for_update:500});
+    function _loadGA(){
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-790ERKMVS5';
+      document.head.appendChild(s);
+      gtag('js',new Date());
+      gtag('config','G-790ERKMVS5');
+    }
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId setPersonPropertiesForFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||(window.posthog=[]));
+    function _loadPostHog(){
+      posthog.init("phc_BJBQFh9hadJS3u6CzBUa8KY3kxveMeuXVfGGZVm4N34n", {
+        api_host: "https://t.panoskokmotos.com",
+        ui_host: "https://us.posthog.com",
+        person_profiles: "identified_only"
+      });
+    }
+    (function(){
+      var consent=localStorage.getItem('cookie_consent');
+      if(consent==='accepted'){gtag('consent','update',{analytics_storage:'granted'});_loadGA();_loadPostHog();}
+    })();
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms &amp; Conditions — Panos Kokmotos</title>
   <meta name="description" content="Terms and Conditions for panoskokmotos.com"/>
   <meta name="robots" content="noindex"/>
   <link rel="canonical" href="https://panoskokmotos.com/terms.html"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.min.css?v=20260912"/>
   <style>
     .legal-wrap { max-width: 720px; margin: 0 auto; padding: 120px 24px 80px; }
     .legal-wrap h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 8px; }
@@ -23,6 +49,50 @@
   </style>
 </head>
 <body>
+  <!-- ── GDPR Cookie Consent Banner ── -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie consent" style="display:none">
+    <div class="cookie-banner-inner">
+      <div class="cookie-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-.34-.02-.67-.05-1a3 3 0 01-3.45-3.45A3 3 0 0115 4.05 9.97 9.97 0 0012 2z"/>
+          <circle cx="8.5" cy="10" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="13" cy="15" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="15" cy="9" r="0.7" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="cookie-content">
+        <p class="cookie-title">We use cookies</p>
+        <p class="cookie-text">
+          This site uses analytics cookies (Google Analytics &amp; PostHog) to understand how visitors use it. No personal data is sold or shared with advertisers. See our
+          <a href="/privacy.html" class="cookie-link">Privacy Policy</a> and
+          <a href="/terms.html" class="cookie-link">Terms &amp; Conditions</a>.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Decline</button>
+        <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept All</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var b=document.getElementById('cookieBanner');
+      if(!localStorage.getItem('cookie_consent')){
+        b.style.display='';
+        document.getElementById('cookieAccept').onclick=function(){
+          localStorage.setItem('cookie_consent','accepted');
+          b.style.display='none';
+          gtag('consent','update',{analytics_storage:'granted'});
+          _loadGA();
+          if (typeof _loadPostHog === 'function') _loadPostHog();
+        };
+        document.getElementById('cookieDecline').onclick=function(){
+          localStorage.setItem('cookie_consent','declined');
+          b.style.display='none';
+        };
+      }
+    })();
+  </script>
   <nav class="nav" id="mainNav">
     <div class="nav-container">
       <a href="/" class="nav-logo">
@@ -72,6 +142,6 @@
     <p>For any questions regarding these Terms, please contact <a href="mailto:panagiotis.kokmotoss@gmail.com">panagiotis.kokmotoss@gmail.com</a>.</p>
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.min.js?v=20260912"></script>
 </body>
 </html>
