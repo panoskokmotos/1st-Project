@@ -1,13 +1,13 @@
-const CACHE_NAME = 'panos-v4';
+const CACHE_NAME = 'panos-v5';
 const OFFLINE_URL = '/offline.html';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/style.css',
-  '/script.js',
-  '/chat.js',
-  '/tool-utils.js',
+  '/style.min.css',
+  '/script.min.js',
+  '/chat.min.js',
+  '/tool-utils.min.js',
   '/photo.webp',
   '/offline.html',
   '/manifest.json',
