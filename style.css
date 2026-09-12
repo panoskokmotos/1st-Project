@@ -997,7 +997,7 @@ html[data-theme="light"] .skill-group h4 { color: rgba(255,255,255,0.5); }
 }
 .bnr-label {
   font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #22c55e;
+  text-transform: uppercase; color: #22c55e; margin: 0;
 }
 .bnr-grid {
   display: grid;
@@ -1102,7 +1102,7 @@ html[data-theme="light"] .skill-group h4 { color: rgba(255,255,255,0.5); }
   background: linear-gradient(135deg, #1e3a8a, #3b6ef8);
 }
 .book-body { padding: 16px 18px; display:flex; flex-direction:column; gap:6px; min-height: 220px; }
-.book-body h4 { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.book-body h3 { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin: 0 0 2px; }
 .book-author { font-size: 0.82rem; color: var(--blue); font-weight: 600; margin-bottom: 8px; }
 .book-highlights {
   margin: 0;
@@ -1130,7 +1130,7 @@ html[data-theme="light"] .skill-group h4 { color: rgba(255,255,255,0.5); }
 
 
 .books-categories { display: flex; flex-direction: column; gap: 28px; }
-.books-category-title { font-size: 0.95rem; color: var(--blue); margin-bottom: 14px; letter-spacing: 0.03em; }
+.books-category-title { font-size: 0.95rem; color: var(--blue); margin: 0 0 14px; letter-spacing: 0.03em; }
 .books-category .books-grid { grid-template-columns: repeat(5, 1fr); }
 
 .chip-brand {
@@ -1700,8 +1700,8 @@ html[data-theme="light"] .nav-logo { border-color: rgba(15,30,61,0.2); }
 }
 .ms-card-featured { padding-bottom: 28px; }
 .ms-emoji { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-.ms-card h4 {
-  font-size: 0.97rem; font-weight: 700; color: var(--navy); margin-bottom: 3px;
+.ms-card h3 {
+  font-size: 0.97rem; font-weight: 700; color: var(--navy); margin: 0 0 3px;
 }
 .ms-card p {
   font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; margin: 0;
@@ -2023,7 +2023,7 @@ html[data-theme="light"] .chip {
   color: var(--navy);
 }
 html[data-theme="light"] .chip:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
-html[data-theme="light"] .ms-card h4 { color: var(--navy); }
+html[data-theme="light"] .ms-card h3 { color: var(--navy); }
 html[data-theme="light"] .watch-featured-title { color: var(--navy); }
 
 /* ─────────────────────────────────────────
@@ -2520,7 +2520,7 @@ html[data-theme="light"] .now-section { background: #f7f9fc; }
 ───────────────────────────────────────── */
 @media (max-width: 580px) {
   .book-body { padding: 12px 14px; min-height: unset; }
-  .book-body h4 { font-size: 0.92rem; }
+  .book-body h3 { font-size: 0.92rem; }
   .book-highlights { font-size: 0.82rem; gap: 5px; }
   .book-cover-wrap { aspect-ratio: 2 / 2.5; }
   .books-philosophy { padding: 18px; }
@@ -2838,9 +2838,9 @@ html[data-theme="light"] .btn-book-call { border-color: rgba(0,0,0,0.2); color: 
 .ot-icon {
   font-size: 2rem; margin-bottom: 12px;
 }
-.open-to-card h4 {
+.open-to-card h3 {
   font-size: 0.97rem; font-weight: 700; color: var(--navy);
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 .open-to-card p {
   font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; margin: 0;
@@ -2920,7 +2920,7 @@ html[data-theme="light"] .book-card {
 html[data-theme="light"] .book-card:hover {
   box-shadow: 0 8px 28px rgba(15,30,61,0.13);
 }
-html[data-theme="light"] .book-body h4 { color: var(--navy); }
+html[data-theme="light"] .book-body h3 { color: var(--navy); }
 html[data-theme="light"] .book-author { color: var(--text-muted); }
 html[data-theme="light"] .book-highlights li { color: var(--text); }
 
@@ -2993,7 +2993,7 @@ html[data-theme="light"] .open-to-card {
   box-shadow: 0 2px 12px rgba(15,30,61,0.07);
 }
 html[data-theme="light"] .open-to-card:hover { box-shadow: 0 8px 28px rgba(15,30,61,0.13); }
-html[data-theme="light"] .open-to-card h4 { color: var(--navy); }
+html[data-theme="light"] .open-to-card h3 { color: var(--navy); }
 html[data-theme="light"] .open-to-card p { color: var(--text-muted); }
 
 /* ── Now section ── */
@@ -3026,7 +3026,7 @@ html[data-theme="light"] .prog-card:hover { background: #f0f4ff; }
 /* ── Milestone / Journey ── */
 html[data-theme="light"] .milestone-track,
 html[data-theme="light"] .milestones-track { background: transparent; }
-html[data-theme="light"] .ms-card h4 { color: var(--navy); }
+html[data-theme="light"] .ms-card h3 { color: var(--navy); }
 html[data-theme="light"] .ms-card p { color: var(--text-muted); }
 html[data-theme="light"] .ms-year { color: var(--text-muted); }
 html[data-theme="light"] .ms-dot::before { background: var(--blue); border-color: var(--bg-alt); }
@@ -4053,7 +4053,7 @@ html[data-theme="light"] .tidycal-toggle { background: #f8f9fc; color: var(--tex
   .book-cover-img { width: 100%; height: 100%; object-fit: cover; }
   .book-highlights { display: none; }
   .book-body { padding: 6px 2px 0; }
-  .book-body h4 { font-size: 0.72rem; line-height: 1.3; margin-bottom: 2px; }
+  .book-body h3 { font-size: 0.72rem; line-height: 1.3; margin: 0 0 2px; }
   .book-author { font-size: 0.65rem; margin-bottom: 4px; }
   .book-share-x { font-size: 0.62rem; padding: 3px 7px; margin-top: auto; }
 }
@@ -4595,7 +4595,7 @@ html[data-theme="light"] .timeline-item.tl-active .tl-card {
   display: inline-block;
   width: fit-content;
 }
-.podcast-episode-body h4 {
+.podcast-episode-body h3 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--navy);
@@ -4661,11 +4661,11 @@ html[data-theme="light"] .timeline-item.tl-active .tl-card {
   flex-shrink: 0;
   margin-top: 2px;
 }
-.now-page-content h3 {
+.now-page-content h2 {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 .now-page-content p {
   font-size: 0.95rem;
@@ -4722,7 +4722,7 @@ html[data-theme="light"] .timeline-item.tl-active .tl-card {
   font-size: 1rem;
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: 12px;
+  margin: 0 0 12px;
   line-height: 1.4;
 }
 .belief-block p {
